@@ -3,8 +3,4 @@ dist
 .angular
 coverage
 out-tsc
-.DS_Store
-*.log
-.env
-.env.*
-!.env.example
+.git

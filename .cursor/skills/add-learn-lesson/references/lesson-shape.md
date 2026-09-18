@@ -1,14 +1,14 @@
 # Lesson shape
 
-Source of types: Learn app `src/lib/lessons/types.ts`. Do not invent extra
+Source of types: Learn app `src/app/features/classroom/domain/lessons/types.ts`. Do not invent extra
 fields on `Lesson` or `Step`.
 
 ## Files
 
 | Tree | Path |
 |------|------|
-| Learn app | `src/lib/lessons/<id>.ts` |
-| Learn app | `src/lib/lessons/catalog.ts` — import + append to `track.lessons` |
+| Learn app | `src/app/features/classroom/domain/lessons/<id>.ts` |
+| Learn app | `src/app/features/classroom/domain/catalog.ts` — import + append to `track.lessons` |
 | `mikepattyn/learn` | `curriculum/NN-kebab-title.md` |
 | `mikepattyn/learn` | `README.md` path table |
 

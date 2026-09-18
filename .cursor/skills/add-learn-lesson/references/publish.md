@@ -24,12 +24,9 @@ README row:
 
 ## Learn app (this workspace)
 
-When `src/lib/lessons/catalog.ts` exists, the TypeScript catalog **is** the
+When `src/app/features/classroom/domain/catalog.ts` exists, the TypeScript catalog **is** the
 interactive classroom. HMR picks up the new lesson. Do not put secrets in
 the app. Do not add auth or a database for curriculum.
-
-Grok App Builder: leave the preview server running. Do not push this app
-tree to `mikepattyn/learn`.
 
 ## Skill home (`mikepattyn/.cursor`)
 

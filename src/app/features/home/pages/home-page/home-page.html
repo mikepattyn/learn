@@ -1,0 +1,78 @@
+<main id="main" class="home">
+  <p class="kicker">ADHD-safe classroom</p>
+  <h1>Small AWS lessons. One step on screen.</h1>
+  <p>
+    Progress waits. Nothing streaks, pings, or expires. You park whenever you want. This path uses
+    the real repos: the Cursor scaffold skill, Mikepattyn.Email, and Contact.Api.
+  </p>
+  <div class="home__cta-row">
+    <a
+      class="home__cta"
+      [routerLink]="['/lesson', continueLesson().id, continueStep().id]"
+      (click)="start(continueLesson().id, continueStep().id)"
+    >
+      {{ overall().done > 0 ? 'Continue' : 'Start lesson 1' }}
+    </a>
+    <p class="home__count">{{ overall().done }} of {{ overall().total }} steps ticked</p>
+  </div>
+
+  <section class="home__card">
+    <h2>How this room works</h2>
+    <ul>
+      <li>One step. Not a wall of docs.</li>
+      <li>Still motion unless you ask for a little.</li>
+      <li>No quizzes. No punishing streaks.</li>
+      <li>An 8-minute timer, visual only.</li>
+      <li>Ticks live on this device.</li>
+      <li>Copy a command. Leave the rest.</li>
+    </ul>
+  </section>
+
+  <section>
+    <p class="kicker">The path</p>
+    <h2>{{ track.title }}</h2>
+    <p>{{ track.summary }}</p>
+    <ol class="home__lessons">
+      @for (lesson of lessons; track lesson.id) {
+        <li>
+          <a
+            class="home__card"
+            [routerLink]="['/lesson', lesson.id, firstIncomplete(lesson.id)]"
+            (click)="start(lesson.id, firstIncomplete(lesson.id))"
+          >
+            <p class="kicker">
+              Lesson {{ lesson.number }}{{ lessonState(lesson.id).complete ? ' · ticked' : '' }}
+            </p>
+            <h3>{{ lesson.title }}</h3>
+            <p>{{ lesson.summary }}</p>
+            <div class="home__bar" [style.--ratio]="lessonState(lesson.id).ratio"></div>
+            <p>{{ lesson.minutes }} min · {{ lessonState(lesson.id).done }}/{{ lessonState(lesson.id).total }}</p>
+            <p>
+              @if (lessonState(lesson.id).complete) {
+                Walk again
+              } @else if (lessonState(lesson.id).done > 0) {
+                Pick up here
+              } @else {
+                Open this lesson
+              }
+            </p>
+          </a>
+        </li>
+      }
+    </ol>
+  </section>
+
+  <footer>
+    <p>Source of the lessons.</p>
+    <ul>
+      @for (lesson of lessons; track lesson.id) {
+        <li>
+          <a [href]="lesson.repoUrl" target="_blank" rel="noreferrer">{{ lesson.repo }}</a>
+        </li>
+      }
+      <li>
+        <a href="https://github.com/mikepattyn/learn" target="_blank" rel="noreferrer">mikepattyn/learn</a>
+      </li>
+    </ul>
+  </footer>
+</main>

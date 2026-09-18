@@ -1,0 +1,88 @@
+:host {
+  display: block;
+}
+
+.home {
+  max-width: 48rem;
+  margin: 0 auto;
+  padding: 3rem 1.25rem 5rem;
+  display: grid;
+  gap: 1.75rem;
+}
+
+.kicker {
+  margin: 0;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+h1,
+h2,
+h3 {
+  margin: 0;
+  font-weight: 500;
+}
+
+.home__cta-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.home__cta {
+  display: inline-flex;
+  min-height: 2.75rem;
+  align-items: center;
+  padding: 0 1.25rem;
+  background: var(--accent);
+  color: var(--accent-fg);
+  text-decoration: none;
+}
+
+.home__count,
+.home p {
+  color: var(--muted);
+}
+
+.home__card {
+  display: block;
+  padding: 1.25rem;
+  background: var(--surface);
+  color: inherit;
+  text-decoration: none;
+}
+
+.home__lessons {
+  list-style: none;
+  margin: 1rem 0 0;
+  padding: 0;
+  display: grid;
+  gap: 1rem;
+}
+
+.home__bar {
+  height: 0.25rem;
+  margin: 0.85rem 0;
+  background: var(--bg);
+}
+
+.home__bar::after {
+  content: '';
+  display: block;
+  width: calc(var(--ratio, 0) * 100%);
+  height: 100%;
+  background: var(--accent);
+}
+
+footer {
+  border-top: 1px solid var(--border);
+  padding-top: 1.25rem;
+}
+
+footer a {
+  color: inherit;
+}

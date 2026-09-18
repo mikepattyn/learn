@@ -1,0 +1,18 @@
+:host {
+  display: contents;
+}
+
+.skip-link {
+  position: absolute;
+  left: 1rem;
+  top: -4.5rem;
+  z-index: 100;
+  padding: 0.65rem 1rem;
+  background: var(--fg);
+  color: var(--bg);
+  text-decoration: none;
+}
+
+.skip-link:focus {
+  top: 0.85rem;
+}

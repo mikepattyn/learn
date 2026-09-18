@@ -33,7 +33,7 @@ they want. Nothing grades them.
 |------|--------|
 | This skill | [mikepattyn/.cursor](https://github.com/mikepattyn/.cursor) → `skills/add-learn-lesson/` |
 | Lesson markdown | [mikepattyn/learn](https://github.com/mikepattyn/learn) → `curriculum/` |
-| Interactive catalog | Learn app → `src/lib/lessons/` when that tree is in the workspace |
+| Interactive catalog | Learn app → `src/app/features/classroom/domain/lessons/` when that tree is in the workspace |
 
 Do **not** put lesson bodies in this repo. `.cursor` holds skills. `learn`
 holds curriculum.
@@ -72,7 +72,7 @@ Infer from the invoking message. Ask only for what is still missing, in
 | Source repo | Public GitHub URL the lesson is about (clone it; do not invent APIs) |
 | Track | Default: append to **First contact email**. New track only if they named one |
 | Placement | Next number after the last lesson in that track |
-| App tree | Learn app present if `src/lib/lessons/catalog.ts` exists |
+| App tree | Learn app present if `src/app/features/classroom/domain/catalog.ts` exists |
 
 Do not ask for live secrets. Do not invent AWS account ids, ARNs, passwords,
 or Turnstile keys. Point at env var **names** only.
@@ -84,7 +84,7 @@ If they named a private repo, stop and say the classroom is public.
 In parallel:
 
 - `curriculum/` on `mikepattyn/learn` (or a fresh clone)
-- `src/lib/lessons/` if the Learn app is in this workspace
+- `src/app/features/classroom/domain/lessons/` if the Learn app is in this workspace
 - The source repo the lesson teaches (README + the files you will quote)
 
 Next lesson number = max existing `number` in the track + 1. Next markdown
@@ -115,9 +115,9 @@ Copy voice from the existing three lessons. Rules:
 
 ## 4. TypeScript (Learn app)
 
-When `src/lib/lessons/catalog.ts` exists:
+When `src/app/features/classroom/domain/catalog.ts` exists:
 
-1. Add `src/lib/lessons/<id>.ts` exporting `<id>Lesson` as `Lesson`
+1. Add `src/app/features/classroom/domain/lessons/<id>.ts` exporting `<id>Lesson` as `Lesson`
 2. Import it in `catalog.ts` and append it to `track.lessons` (order = path order)
 3. Do not change `types.ts` unless a new block type is truly required
 4. `minutes` on the lesson = sum of step minutes (or a honest round number)

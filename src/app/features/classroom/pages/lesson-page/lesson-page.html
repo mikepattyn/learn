@@ -1,0 +1,11 @@
+<main id="main">
+  @if (lesson(); as current) {
+    @if (step(); as currentStep) {
+      <app-lesson-player [lesson]="current" [step]="currentStep" />
+    } @else {
+      <p>That step is not in this lesson. <a routerLink="/">Park and go home</a></p>
+    }
+  } @else {
+    <p>That lesson is not on this path. <a routerLink="/">Park and go home</a></p>
+  }
+</main>

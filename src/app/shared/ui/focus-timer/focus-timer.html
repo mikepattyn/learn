@@ -1,0 +1,14 @@
+<div class="timer">
+  <div class="timer__face" role="timer" [attr.aria-label]="'Focus timer ' + label()">
+    <span>{{ label() }}</span>
+  </div>
+  <button type="button" (click)="toggle()">
+    {{ running() ? 'Pause timer' : 'Start 8 minute focus timer' }}
+  </button>
+  @if (remaining() !== 480) {
+    <button type="button" (click)="reset()">Reset timer</button>
+  }
+  @if (ended()) {
+    <p>Pause if you want. The step will wait.</p>
+  }
+</div>

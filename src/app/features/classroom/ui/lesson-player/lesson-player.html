@@ -1,0 +1,100 @@
+<div class="player">
+  <div class="player__top">
+    <a routerLink="/">Park and go home</a>
+    <app-focus-timer />
+  </div>
+  <p class="kicker">
+    Lesson {{ lesson().number }} · Step {{ neighbours().index + 1 }} of {{ lesson().steps.length }}
+  </p>
+  <h1>{{ step().title }}</h1>
+  <p><strong>Why. </strong>{{ step().why }}</p>
+  <div class="player__bar" [style.--ratio]="stepRatio()"></div>
+
+  <details>
+    <summary>All steps in this lesson</summary>
+    <ol>
+      @for (item of lesson().steps; track item.id; let itemIndex = $index) {
+        <li>
+          <a
+            [routerLink]="['/lesson', lesson().id, item.id]"
+            (click)="go(lesson().id, item.id)"
+            [class.player__current]="item.id === step().id"
+          >
+            {{ stepDone(item.id) ? 'Ticked' : 'Open' }} {{ itemIndex + 1 }}. {{ item.title }}
+          </a>
+        </li>
+      }
+    </ol>
+  </details>
+
+  <div class="player__blocks">
+    @for (block of step().blocks; track $index) {
+      @switch (block.type) {
+        @case ('p') {
+          <p>{{ block.text }}</p>
+        }
+        @case ('code') {
+          <pre><code>{{ block.content }}</code></pre>
+        }
+        @case ('list') {
+          <ul>
+            @for (item of block.items; track item) {
+              <li>{{ item }}</li>
+            }
+          </ul>
+        }
+        @case ('caution') {
+          <aside class="player__caution">{{ block.text }}</aside>
+        }
+        @case ('note') {
+          <aside>{{ block.text }}</aside>
+        }
+        @case ('flow') {
+          <ol>
+            @for (node of block.nodes; track node.label) {
+              <li>{{ node.label }}{{ node.hint ? ' — ' + node.hint : '' }}</li>
+            }
+          </ol>
+        }
+        @case ('kv') {
+          <dl>
+            @for (row of block.rows; track row.key) {
+              <div>
+                <dt>{{ row.key }}</dt>
+                <dd>{{ row.value }}</dd>
+              </div>
+            }
+          </dl>
+        }
+        @case ('link') {
+          <a [href]="block.href" target="_blank" rel="noreferrer">{{ block.label }}</a>
+        }
+      }
+    }
+  </div>
+
+  <div class="player__actions">
+    @if (neighbours().prev; as prev) {
+      <button type="button" (click)="go(lesson().id, prev.id)">Back</button>
+    } @else {
+      <a routerLink="/">Home</a>
+    }
+    @if (done()) {
+      <button type="button" (click)="uncheck()">Uncheck this step</button>
+      @if (neighbours().next; as next) {
+        <button type="button" (click)="go(lesson().id, next.id)">Next step</button>
+      } @else if (following(); as nextLesson) {
+        <button type="button" (click)="go(nextLesson.id, nextLesson.steps[0].id)">Next lesson</button>
+      } @else {
+        <a routerLink="/">Done. Go home</a>
+      }
+    } @else {
+      <button type="button" (click)="completeAndAdvance()">I did this</button>
+    }
+  </div>
+
+  @if (lessonComplete()) {
+    <p>Lesson {{ lesson().number }} is ticked. Nothing expires. You can walk it again whenever you want.</p>
+  }
+  <button type="button" (click)="reset()">Reset this lesson</button>
+</div>

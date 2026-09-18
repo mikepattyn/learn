@@ -1,0 +1,44 @@
+<button type="button" aria-label="Classroom settings" (click)="show()">Settings</button>
+@if (open()) {
+  <div class="prefs" role="dialog" aria-labelledby="prefs-title">
+    <div class="prefs__bar">
+      <h2 id="prefs-title">How this room feels</h2>
+      <button type="button" aria-label="Close" (click)="hide()">Close</button>
+    </div>
+    <fieldset>
+      <legend>Light</legend>
+      <button type="button" [attr.aria-pressed]="prefs().theme === 'paper'" (click)="setTheme('paper')">
+        Paper
+      </button>
+      <button type="button" [attr.aria-pressed]="prefs().theme === 'ink'" (click)="setTheme('ink')">Ink</button>
+    </fieldset>
+    <fieldset>
+      <legend>Type size</legend>
+      <button
+        type="button"
+        [attr.aria-pressed]="prefs().typeSize === 'comfortable'"
+        (click)="setTypeSize('comfortable')"
+      >
+        Comfortable
+      </button>
+      <button type="button" [attr.aria-pressed]="prefs().typeSize === 'large'" (click)="setTypeSize('large')">
+        Large
+      </button>
+    </fieldset>
+    <fieldset>
+      <legend>Motion</legend>
+      <button type="button" [attr.aria-pressed]="prefs().motion === 'reduce'" (click)="setMotion('reduce')">
+        Still
+      </button>
+      <button
+        type="button"
+        [attr.aria-pressed]="prefs().motion === 'a-little'"
+        (click)="setMotion('a-little')"
+      >
+        A little
+      </button>
+      <p>Still is the default. Nothing here blinks or streaks.</p>
+    </fieldset>
+    <button type="button" (click)="clearTicks()">Clear my ticks</button>
+  </div>
+}
