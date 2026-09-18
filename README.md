@@ -2,7 +2,23 @@
 
 Small AWS lessons. One step at a time. Written to be safe for ADHD brains: one screen, no streaks, no quizzes, nothing that expires.
 
-This repository is the MIT-licensed curriculum. The interactive classroom is the Learn app — same words, one step on screen, ticks stored on the device.
+This repository is the **classroom website** and the markdown curriculum.
+
+## Run the classroom
+
+```bash
+npm install
+npm run dev
+```
+
+Then open [http://localhost:3000](http://localhost:3000).
+
+```bash
+npm run build
+npm run preview
+```
+
+Progress is stored in the browser. Nothing is sent to a server.
 
 ## The path
 
@@ -15,6 +31,12 @@ This repository is the MIT-licensed curriculum. The interactive classroom is the
 | 3 | [Wire Contact.Api on Lambda](curriculum/03-contact-api-lambda.md) | [mikepattyn/Mikepattyn.Contact.Api](https://github.com/mikepattyn/Mikepattyn.Contact.Api) |
 
 How the room is supposed to feel: [curriculum/00-how-this-works.md](curriculum/00-how-this-works.md).
+
+Interactive copies of the same lessons live in [`src/lib/lessons/`](src/lib/lessons/).
+
+## Add a lesson
+
+Use the Cursor skill [`add-learn-lesson`](https://github.com/mikepattyn/.cursor/blob/main/skills/add-learn-lesson/SKILL.md). A copy is in [`.cursor/skills/add-learn-lesson/`](.cursor/skills/add-learn-lesson/).
 
 ## Classroom rules
 
