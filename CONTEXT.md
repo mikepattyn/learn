@@ -1,6 +1,6 @@
 # Learn classroom
 
-Public ADHD-safe classroom. Own npm package in this git submodule (`https://github.com/mikepattyn/learn.git`). Compose serves it on `:3000`. It is not a `@pattynologies/angular` project.
+Public ADHD-safe classroom. Own npm package in this git submodule (`https://github.com/mikepattyn/learn.git`). Compose serves it on `:3000`. Production is `https://learn.mikepattyn.nl` (Mikepattyn platform CDK + deploy). It is not a `@pattynologies/angular` project.
 
 ## Language
 

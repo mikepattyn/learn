@@ -11,7 +11,7 @@ npm install
 npm run dev
 ```
 
-Then open [http://localhost:3000](http://localhost:3000).
+Then open [http://localhost:3000](http://localhost:3000). Production: [learn.mikepattyn.nl](https://learn.mikepattyn.nl).
 
 ```bash
 npm test
