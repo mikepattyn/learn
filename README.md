@@ -22,13 +22,14 @@ Progress is stored in the browser. Nothing is sent to a server.
 
 ## The path
 
-**First contact email** — scaffold an umbrella, send mail with `Mikepattyn.Email`, then wire `Mikepattyn.Contact.Api` as an API Gateway Lambda.
+**First contact email** — scaffold an umbrella, send mail with `Mikepattyn.Email`, wire `Mikepattyn.Contact.Api` as an API Gateway Lambda, then contrast that door with a Function URL.
 
 | # | Lesson | Source |
 |---|--------|--------|
 | 1 | [Scaffold a new umbrella](curriculum/01-scaffold-the-umbrella.md) | [mikepattyn/.cursor](https://github.com/mikepattyn/.cursor) |
 | 2 | [Send mail with Mikepattyn.Email](curriculum/02-the-email-package.md) | [mikepattyn/Mikepattyn.Email](https://github.com/mikepattyn/Mikepattyn.Email) |
 | 3 | [Wire Contact.Api on Lambda](curriculum/03-contact-api-lambda.md) | [mikepattyn/Mikepattyn.Contact.Api](https://github.com/mikepattyn/Mikepattyn.Contact.Api) |
+| 4 | [Two HTTP doors for Lambda](curriculum/04-function-url-vs-api-gateway.md) | [aws/aws-cdk](https://github.com/aws/aws-cdk) |
 
 How the room is supposed to feel: [curriculum/00-how-this-works.md](curriculum/00-how-this-works.md).
 

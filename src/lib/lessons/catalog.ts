@@ -1,5 +1,6 @@
 import { contactApiLesson } from "./contact-api";
 import { emailLesson } from "./email";
+import { functionUrlVsApiGatewayLesson } from "./function-url-vs-api-gateway";
 import { scaffoldLesson } from "./scaffold";
 import type { Lesson, Track } from "./types";
 
@@ -7,7 +8,7 @@ export const track: Track = {
   id: "first-contact-email",
   title: "First contact email",
   summary: "Scaffold the umbrella, then send one form message through Lambda and Zoho.",
-  lessons: [scaffoldLesson, emailLesson, contactApiLesson],
+  lessons: [scaffoldLesson, emailLesson, contactApiLesson, functionUrlVsApiGatewayLesson],
 };
 
 export const lessons: Lesson[] = track.lessons;
